@@ -1,3 +1,3 @@
 defmodule User do
-  defstruct [:email, name: "John", age: 27]
+  defstruct [name: "John", age: 27, :email]
 end

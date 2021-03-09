@@ -1,7 +1,14 @@
-defmodule Utility do
+defprotocol Utility do
+  @spec type(t) :: String.t()
+  def type(value)
+end
 
-  # A function that is polymorphic based on argument type
-  def type(value) when is_binary(value), do: "string"
-  def type(value) when is_integer(value), do: "integer"
-  # ... other type-specific implementations
+# Although these implementations are in the same file as the protocol definition, it is **not** required. In
+# fact, it is more typical to hove implementations in many different files.:
+defimpl Utility, for: BitString do
+  def type(value), do: "String"
+end
+
+defimpl Utility, for: Integer do
+  def type(value), do: "Integer"
 end

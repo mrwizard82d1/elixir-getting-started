@@ -1,3 +1,7 @@
 defmodule User do
-  defstruct [:email, name: "John", age: 27]
+  defstruct [:name, :age]
+end
+
+defimpl Size, for: User do
+  def size(_user), do: 2
 end

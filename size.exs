@@ -19,3 +19,8 @@ end
 defimpl Size, for: MapSet do
   def size(set), do: MapSet.size(set)
 end
+
+defimpl Size, for: Any do
+  # Not really reasonable but allows us to move forward.
+  def size(_), do: 0
+end

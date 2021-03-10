@@ -1,4 +1,5 @@
 defprotocol Size do
+  @fallback_to_any true
   @doc "Calculates the size (not the length!) of a data structure."
 
   def size(data)

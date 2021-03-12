@@ -6,4 +6,9 @@ defmodule Person do
 
   @spec current_age(year) :: integer
   def current_age(year), do: 3  # stub implementation
+
+  @type error_map :: %{
+    message: String.t,
+    line_number: integer
+  }
 end

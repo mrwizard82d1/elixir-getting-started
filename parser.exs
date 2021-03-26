@@ -8,4 +8,11 @@ defmodule Parser do
   Lists all supported file extensions.
   """
   @callback extensions() :: [String.t]
+
+  def parse!(implementation, contents) do
+    case implementation.parse(contents) do
+      {:ok, data} -> data
+      {:error, error} -> raise ArgumentError, "parsing error: #{error}"
+    end
+  end
 end
